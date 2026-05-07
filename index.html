@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fechamento da Loja</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header id="tipo"></header>
+    <main>
+        
+    <button class="reiniciar" onclick="reiniciar()">Reiniciar</button>
+        <section id="telaFechamento" class="tela ativa">
+            <label for="metaDiaria">Meta Diária ($):</label>
+            <input type="text" id="metaFechamento" required>
+            
+            <label for="realizado">Realizado ($):</label>
+            <input type="text" id="realiFechamento" required>
+            
+            <label for="contingencia">Contingência ($):</label>
+            <input type="text" id="contFechamento" required>
+
+            <button onclick="proximaTela('acessorios')">Ir para Acessórios</button>
+        </section>
+        <section id="telaAcessorios" class="tela">
+            <label for="metaDiaria">Meta Fat ($):</label>
+            <input type="text" required id="metaAcessorios">
+
+            <label for="realizado">Realizado Dia ($):</label>
+            <input type="text" required id="realiAcessorios">
+            
+            <label for="contingencia">Acumulado ($):</label>
+            <input type="text" required id="contAcessorios">
+
+            <button onclick="proximaTela('seguro')">Ir para Seguros</button>
+        </section>
+        <section id="telaSeguro" class="tela">
+            <label for="metaDiaria">Meta Fat ($):</label>
+            <input type="text" required id="metaSeguro">
+
+            
+            <label for="realizado">Seguro Dia ($):</label>
+            <input type="text" required id="realiSeguro">
+            
+            <label for="contingencia">Acumulado ($):</label>
+            <input type="text" required id="contSeguro">
+
+            <button onclick="proximaTela('quantidade')">Ir para Quantidade</button>
+        </section>
+
+        <section class="tela" id="telaQuantidade">
+            <label for="pelicula">Quantidade de Películas:</label>
+            <input type="text" id="pelicula">
+
+            <label for="aparelho">Quantidade de Aparelhos:</label>
+            <input type="text" id="aparelho">
+
+            <button onclick="enviar()">Enviar</button>
+        </section>
+    </main>
+    <footer>Gustavo Moreira Rinaldi Bellini - Automatização de Registro</footer>
+    <script src="script.js">
+    </script>
+</body>
+</html>
