@@ -132,7 +132,7 @@ function enviar(){
     let pelicula = document.getElementById('pelicula').value;
     let aparelho = document.getElementById('aparelho').value;
 
-    texto += `*Itens Vendidos:*%0A    *Aparelhos:* ${aparelho}%0A    *Películas:* ${pelicula}%0A`;
+    texto += `*Itens Vendidos:*%0A    *Aparelhos:* ${aparelho}%0A    *Películas:* ${pelicula}`;
 
     let telefone = "+5519992961108";
 
