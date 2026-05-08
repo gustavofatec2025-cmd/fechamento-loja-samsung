@@ -120,7 +120,7 @@ function proximaTela(proxima){
         }
         
         texto += `*Seguros*:%0A    *Meta Fat:* ${formatar(mSF)}%0A` +
-        `    *Seguro Dia:* ${formatar(rSF)}%0A    *Acumulado:* ${formatar(cSF)}%0A`; 
+        `    *Seguro Dia:* ${formatar(rSF)}%0A    *Acumulado:* ${formatar(cSF)}%0A--------------------------------------------------------------------------------%0A`; 
         
         tipo.innerHTML = "<h1>Quantidade de Itens</h1>"
         document.getElementById("telaSeguro").classList.remove("ativa");
