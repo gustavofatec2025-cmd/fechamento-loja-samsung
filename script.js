@@ -1,6 +1,31 @@
 let texto = "";
 let tipo = document.getElementById('tipo');
+
+let telaFechamento = document.getElementById("telaFechamento");
+let telaAcessorios = document.getElementById("telaAcessorios");
+let telaSeguro = document.getElementById("telaSeguro");
+let telaQuantidade = document.getElementById("telaQuantidade");
+
 tipo.innerHTML = "<h1>Fechamento</h1>"
+
+window.addEventListener('keydown', function(event){
+    if(event.key === 'Enter'){
+        event.preventDefault(); 
+
+        if(telaFechamento.classList.contains('ativa')){
+            proximaTela('acessorios');
+        }
+        else if(telaAcessorios.classList.contains('ativa')){
+            proximaTela('seguro');
+        }
+        else if(telaSeguro.classList.contains('ativa')){
+            proximaTela('quantidade');
+        }
+        else if(telaQuantidade.classList.contains('ativa')){
+            enviar();
+        }
+    }
+})
 
 function formatar(valor){
 
@@ -38,15 +63,25 @@ function desformatar(valor) {
     return parseFloat(numeroLimpo);
 }
 
+function erroMensagem(texto, mensagem){
+    mensagem.style.visibility = 'visible'
+    mensagem.innerHTML = `${texto}`;
+
+    telaFechamento.addEventListener('input', function(){
+        mensagem.style.visibility = 'hidden';
+    })
+}
+
 function proximaTela(proxima){
 
     if(proxima === 'acessorios'){
         let m = document.getElementById('metaFechamento').value;
         let r = document.getElementById('realiFechamento').value;
         let c = document.getElementById('contFechamento').value;
+        let mensagem = document.getElementById('mensagemFechamento');
         
         if(m.trim() === "" || r.trim() === "" || c.trim() === ""){
-            alert("Todos os campos devem ser preenchidos!");
+            erroMensagem("Preencha todos os campos!", mensagem);
             return;
         }
         
@@ -61,12 +96,12 @@ function proximaTela(proxima){
         let t = rF + cF
         
         if(isNaN(mF) || isNaN(rF) || isNaN(cF)){
-            alert("Erro!\nTente novamente!");
+            erroMensagem("Apenas Números são permitidos!", mensagem);
             return
         }
         alert(`Realizado + Contingência = Total\n${formatar(rF)} + ${formatar(cF)} = ${formatar(t)}`)
         
-        texto += `     *Fechamento Loja Campinas Shopping:*%0A%20%20%20%20%20%20%20%20%20%20%20%20*${dataFormatada}*%0A--------------------------------------------------------------------------------%0A*Aparelhos:*%0A    *Meta:* ${formatar(mF)}%0A` +
+        texto = `     *Fechamento Loja Campinas Shopping:*%0A%20%20%20%20%20%20%20%20%20%20%20%20*${dataFormatada}*%0A--------------------------------------------------------------------------------%0A*Aparelhos:*%0A    *Meta:* ${formatar(mF)}%0A` +
         `    *Realizado:* ${formatar(rF)}%0A    *Contingência:* ${formatar(cF)}%0A    *Total no dia:* ${formatar(t)}%0A--------------------------------------------------------------------------------%0A`; 
         
         tipo.innerHTML = "<h1>Acessórios</h1>"
@@ -77,9 +112,10 @@ function proximaTela(proxima){
         let mA = document.getElementById('metaAcessorios').value;
         let rA = document.getElementById('realiAcessorios').value;
         let cA = document.getElementById('contAcessorios').value;
+        let mensagem = document.getElementById('mensagemAcessorios');
 
         if(mA.trim() === "" || rA.trim() === "" || cA.trim() === ""){
-            alert("Todos os campos devem ser preenchidos!");
+            erroMensagem("Preencha todos os campos!", mensagem);
             return;
         }
         
@@ -88,7 +124,7 @@ function proximaTela(proxima){
         let cAF = desformatar(cA);
         
         if(isNaN(mAF) || isNaN(rAF) || isNaN(cAF)){
-            alert("Erro!\nTente novamente!");
+            erroMensagem("Apenas Números são permitidos!", mensagem);
             return
         }
 
@@ -104,9 +140,10 @@ function proximaTela(proxima){
         let mS = document.getElementById('metaSeguro').value;
         let rS = document.getElementById('realiSeguro').value;
         let cS = document.getElementById('contSeguro').value;
+        let mensagem = document.getElementById('mensagemSeguro');
 
         if(mS.trim() === "" || rS.trim() === "" || cS.trim() === ""){
-            alert("Todos os campos devem ser preenchidos!");
+            erroMensagem("Preencha todos os campos!", mensagem);
             return;
         }
 
@@ -115,7 +152,7 @@ function proximaTela(proxima){
         let cSF = desformatar(cS);
         
         if(isNaN(mSF) || isNaN(rSF) || isNaN(cSF)){
-            alert("Erro!\nTente novamente!");
+            erroMensagem("Apenas Números são permitidos!", mensagem);
             return
         }
         
@@ -129,16 +166,30 @@ function proximaTela(proxima){
 }
 
 function enviar(){
-    let pelicula = document.getElementById('pelicula').value;
     let aparelho = document.getElementById('aparelho').value;
+    let pelicula = document.getElementById('pelicula').value;
+    let mensagem = document.getElementById('mensagemQuantidade');
+
+    if(aparelho.trim() === "" || pelicula.trim() === ""){
+        erroMensagem("Preencha todos os campos!", mensagem);
+        return;
+    }
+
+    let aparelhoF = desformatar(aparelho);
+    let peliculaF = desformatar(pelicula);
+    
+    if(isNaN(aparelhoF) || isNaN(peliculaF)){
+        erroMensagem("Apenas Números são permitidos!", mensagem);
+        return
+    }
 
     texto += `*Itens Vendidos:*%0A    *Aparelhos:* ${aparelho}%0A    *Películas:* ${pelicula}`;
 
     let telefone = "+5519992961108";
 
+    alert(`Enviando para ${telefone}\nRedirecionando ao Whatsapp`);
+
     window.open(`https://wa.me/${telefone}?text=${texto}`);
-
-
 }
 
 function reiniciar(){
