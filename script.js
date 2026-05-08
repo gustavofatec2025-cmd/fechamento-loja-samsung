@@ -2,6 +2,29 @@ let texto = "";
 let tipo = document.getElementById('tipo');
 tipo.innerHTML = "<h1>Fechamento</h1>"
 
+window.addEventListener('keydown', function(event){
+    if(event.key === 'Enter'){
+        event.preventDefault();
+        let telaFechamento = document.getElementById("telaFechamento");
+        let telaAcessorios = document.getElementById("telaAcessorios");
+        let telaSeguro = document.getElementById("telaSeguro");
+        let telaQuantidade = document.getElementById("telaQuantidade");
+
+        if(telaFechamento.classList.contains('ativa')){
+            proximaTela('acessorios');
+        }
+        else if(telaAcessorios.classList.contains('ativa')){
+            proximaTela('seguro');
+        }
+        else if(telaSeguro.classList.contains('ativa')){
+            proximaTela('quantidade');
+        }
+        else if(telaQuantidade.classList.contains('ativa')){
+            enviar();
+        }
+    }
+})
+
 function formatar(valor){
 
     let n;
@@ -66,7 +89,7 @@ function proximaTela(proxima){
         }
         alert(`Realizado + Contingência = Total\n${formatar(rF)} + ${formatar(cF)} = ${formatar(t)}`)
         
-        texto += `     *Fechamento Loja Campinas Shopping:*%0A%20%20%20%20%20%20%20%20%20%20%20%20*${dataFormatada}*%0A--------------------------------------------------------------------------------%0A*Aparelhos:*%0A    *Meta:* ${formatar(mF)}%0A` +
+        texto = `     *Fechamento Loja Campinas Shopping:*%0A%20%20%20%20%20%20%20%20%20%20%20%20*${dataFormatada}*%0A--------------------------------------------------------------------------------%0A*Aparelhos:*%0A    *Meta:* ${formatar(mF)}%0A` +
         `    *Realizado:* ${formatar(rF)}%0A    *Contingência:* ${formatar(cF)}%0A    *Total no dia:* ${formatar(t)}%0A--------------------------------------------------------------------------------%0A`; 
         
         tipo.innerHTML = "<h1>Acessórios</h1>"
@@ -129,12 +152,14 @@ function proximaTela(proxima){
 }
 
 function enviar(){
-    let pelicula = document.getElementById('pelicula').value;
     let aparelho = document.getElementById('aparelho').value;
+    let pelicula = document.getElementById('pelicula').value;
 
     texto += `*Itens Vendidos:*%0A    *Aparelhos:* ${aparelho}%0A    *Películas:* ${pelicula}`;
 
-    let telefone = "+5519992961108";
+    let telefone = "+5519992971132";
+
+    alert(`Enviando para ${telefone}\nRedirecionando ao Whatsapp`);
 
     window.open(`https://wa.me/${telefone}?text=${texto}`);
 
