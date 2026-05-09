@@ -36,19 +36,25 @@ header, footer{
 
 .reiniciar{
     width: 20%;
+    background-color: transparent;
+    color: white;
+}
+
+label{
+    font-weight: bolder;
 }
 
 section{
     display: flex;
     flex-direction: column;
-    gap: 20px;
-    background-color: white;
+    gap: 25px;
+    background-color: #ffff;
     max-width: 1200px;
     max-height: 1200px;
     width: 50%;
     justify-content: space-between;
-    height: 60%;
-    padding: 100px;
+    height: 65%;
+    padding: 50px;
     border-radius: 8px;
 }
 
@@ -83,4 +89,12 @@ button:hover{
 
 button:active{
     background-color: #666;
+}
+
+.mensagem{
+    margin-top: 20px;
+    text-align: center;
+    color: red;
+    font-weight: bolder;
+    height: fit-content;
 }

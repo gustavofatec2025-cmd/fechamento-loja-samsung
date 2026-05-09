@@ -22,6 +22,8 @@
             <input type="text" id="contFechamento" required>
 
             <button onclick="proximaTela('acessorios')">Ir para Acessórios</button>
+
+            <span id="mensagemFechamento" class="mensagem">&nbsp;</span>
         </section>
         <section id="telaAcessorios" class="tela">
             <label for="metaDiaria">Meta Fat ($):</label>
@@ -34,6 +36,8 @@
             <input type="text" required id="contAcessorios">
 
             <button onclick="proximaTela('seguro')">Ir para Seguros</button>
+
+            <span id="mensagemAcessorios" class="mensagem">&nbsp;</span>
         </section>
         <section id="telaSeguro" class="tela">
             <label for="metaDiaria">Meta Fat ($):</label>
@@ -47,6 +51,8 @@
             <input type="text" required id="contSeguro">
 
             <button onclick="proximaTela('quantidade')">Ir para Quantidade</button>
+
+            <span id="mensagemSeguro" class="mensagem">&nbsp;</span>
         </section>
 
         <section class="tela" id="telaQuantidade">
@@ -56,8 +62,9 @@
             <label for="pelicula">Quantidade de Películas:</label>
             <input type="text" id="pelicula">
 
-
             <button onclick="enviar()">Enviar</button>
+
+            <span id="mensagemQuantidade" class="mensagem">&nbsp;</span>
         </section>
     </main>
     <footer>Gustavo Moreira Rinaldi Bellini - Automatização de Registro</footer>
