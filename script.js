@@ -185,7 +185,7 @@ function enviar(){
 
     texto += `*Itens Vendidos:*%0A    *Aparelhos:* ${aparelho}%0A    *Películas:* ${pelicula}`;
 
-    let telefone = "+5519992961108";
+    let telefone = "+5519982697716";
 
     alert(`Enviando para ${telefone}\nRedirecionando ao Whatsapp`);
 
