@@ -101,8 +101,8 @@ function proximaTela(proxima){
         }
         alert(`Realizado + Contingência = Total\n${formatar(rF)} + ${formatar(cF)} = ${formatar(t)}`)
         
-        texto = `     *Fechamento Loja Campinas Shopping:*%0A%20%20%20%20%20%20%20%20%20%20%20%20*${dataFormatada}*%0A--------------------------------------------------------------------------------%0A*Aparelhos:*%0A    *Meta:* ${formatar(mF)}%0A` +
-        `    *Realizado:* ${formatar(rF)}%0A    *Contingência:* ${formatar(cF)}%0A    *Total no dia:* ${formatar(t)}%0A--------------------------------------------------------------------------------%0A`; 
+        texto = `     *Fechamento Loja Campinas Shopping:*%0A%20%20%20%20%20%20%20%20%20%20%20%20*${dataFormatada}*%0A------------------------------------------------------------------------------------------------------------------------%0A*Aparelhos:*%0A    *Meta:* ${formatar(mF)}%0A` +
+        `    *Realizado:* ${formatar(rF)}%0A    *Contingência:* ${formatar(cF)}%0A    *Total no dia:* ${formatar(t)}%0A------------------------------------------------------------------------------------------------------------------------%0A`; 
         
         tipo.innerHTML = "<h1>Acessórios</h1>"
         document.getElementById("telaFechamento").classList.remove("ativa");
@@ -130,7 +130,7 @@ function proximaTela(proxima){
 
         
         texto += `*Acessórios*:%0A    *Meta Fat:* ${formatar(mAF)}%0A` +
-        `    *Realizado Dia:* ${formatar(rAF)}%0A    *Acumulado:* ${formatar(cAF)}%0A--------------------------------------------------------------------------------%0A`; 
+        `    *Realizado Dia:* ${formatar(rAF)}%0A    *Acumulado:* ${formatar(cAF)}%0A------------------------------------------------------------------------------------------------------------------------%0A`; 
         
         tipo.innerHTML = "<h1>Seguros</h1>"
         document.getElementById("telaAcessorios").classList.remove("ativa");
@@ -157,7 +157,7 @@ function proximaTela(proxima){
         }
         
         texto += `*Seguros*:%0A    *Meta Fat:* ${formatar(mSF)}%0A` +
-        `    *Seguro Dia:* ${formatar(rSF)}%0A    *Acumulado:* ${formatar(cSF)}%0A--------------------------------------------------------------------------------%0A`; 
+        `    *Seguro Dia:* ${formatar(rSF)}%0A    *Acumulado:* ${formatar(cSF)}%0A------------------------------------------------------------------------------------------------------------------------%0A`; 
         
         tipo.innerHTML = "<h1>Quantidade de Itens</h1>"
         document.getElementById("telaSeguro").classList.remove("ativa");
