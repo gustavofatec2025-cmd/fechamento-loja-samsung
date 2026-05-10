@@ -5,7 +5,7 @@
 }
 
 html,body{
-    height: 100vh;
+    height: 100%;
 }
 
 body{
@@ -24,7 +24,7 @@ main{
 }
 
 header{
-    font-size: 30px;
+    font-size: 20px;
 }
 
 header, footer{
@@ -47,14 +47,16 @@ label{
 section{
     display: flex;
     flex-direction: column;
-    gap: 25px;
+    gap: 15px;
     background-color: #ffff;
     max-width: 1200px;
     max-height: 1200px;
     width: 50%;
     justify-content: space-between;
-    height: 65%;
-    padding: 50px;
+    justify-items: center;
+    align-content: center;
+    height: 50%;
+    padding: 85px;
     border-radius: 8px;
 }
 
@@ -68,7 +70,7 @@ section{
 }
 
 input, button{
-    padding: 15px;
+    padding: 10px;
     border-radius: 8px;
     border: 2px solid #eeee;
 }
@@ -97,4 +99,60 @@ button:active{
     color: red;
     font-weight: bolder;
     height: fit-content;
+}
+
+@media (max-width: 600px) {
+
+    *{
+        padding: 0;
+        margin: 0;
+    }
+
+    html,body{
+        height: 100%;
+    }
+
+    header{
+        font-size: 20px
+    }
+
+    main{
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: #333;
+    }
+    
+    section{
+        display: flex;
+        flex-direction: column;
+        background-color: #ffff;
+        max-width: 1200px;
+        max-height: 1200px;
+        width: 30%;
+        justify-content: space-between;
+        justify-items: center;
+        align-content: center;
+        height: 40%;
+        padding: 85px;
+        border-radius: 8px;
+    }
+
+    label{
+        font-size: 15px;
+    }
+
+    button{
+        font-size: 10px;
+    }
+
+    .mensagem{
+        text-align: center;
+        font-size: 10px;
+        color: red;
+        font-weight: bolder;
+        height: fit-content;
+    }
 }
